@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Assets.Arthur.Scripts
 {
@@ -17,14 +18,12 @@ namespace Assets.Arthur.Scripts
         private float PurgeAmount;
 
         private float _blinkCdTimer;
-        private float _blinkDuration;
         private float _purgeCdTimer;
         
         void Start()
         {
             _stressManager = GetComponent<StressManager>();
             _blinkCdTimer = BlinkCoolDown;
-            _blinkDuration = BlinkDuration;
             _purgeCdTimer = PurgeCoolDown;
         }
 
@@ -34,9 +33,8 @@ namespace Assets.Arthur.Scripts
             if (canUseBlink)
             {
                 if (Input.GetKey(KeyCode.E))
-                {
+                { 
                     Blink();
-                    IsUsingBlinkSpell = true;
                 }
             }
             
@@ -82,19 +80,17 @@ namespace Assets.Arthur.Scripts
 
         private void Blink()
         {
-            canUseBlink = false;
-            
-            if (_blinkDuration > 0)
-            {
-                _blinkDuration -= Time.deltaTime;
-            }
-            else
-            {
-                IsUsingBlinkSpell = false;
-                _blinkDuration = BlinkDuration;
-            }
+            IsUsingBlinkSpell = true;
+            StartCoroutine(WaitForSeconds());
+
         }
 
+        IEnumerator WaitForSeconds()
+        {
+            yield return new WaitForSeconds(BlinkDuration);
+            IsUsingBlinkSpell = false;
+            canUseBlink = false;
+        }
         private void Purge()
         {
             canUsePurge = false;
