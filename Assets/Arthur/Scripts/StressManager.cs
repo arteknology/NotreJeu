@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Arthur.Scripts
 {
@@ -27,6 +28,7 @@ namespace Assets.Arthur.Scripts
         private float _decreaseTimer;
         private float _deathTimer;
 
+        public Slider StressSlider;
 
         private List<GameObject> _passedMultipliers = new List<GameObject>(); 
 
@@ -37,10 +39,13 @@ namespace Assets.Arthur.Scripts
             _mainTimer = TimeBetweenIncrement;
             _decreaseTimer = TimeBetweenDecrement;
             _deathTimer = TimeBeforeDeath;
+            StressSlider.value = _startStressLevel;
         }
 
         void Update()
         {
+            StressSlider.value = CurrentStressLevel;
+            
             isUsingBlinkSpell = _spellManager.IsUsingBlinkSpell;
 
             if (_mainTimer > 0)

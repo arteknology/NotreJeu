@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Arthur.Scripts
 {
@@ -19,12 +20,22 @@ namespace Assets.Arthur.Scripts
 
         private float _blinkCdTimer;
         private float _purgeCdTimer;
-        
+
+        public Slider BlinkSlider;
+        public Slider PurgeSlider;
+
         void Start()
         {
             _stressManager = GetComponent<StressManager>();
             _blinkCdTimer = BlinkCoolDown;
             _purgeCdTimer = PurgeCoolDown;
+            
+            BlinkSlider.maxValue = BlinkCoolDown;
+            BlinkSlider.value = 0;
+            
+            PurgeSlider.maxValue = PurgeCoolDown;
+            PurgeSlider.value = 0;
+
         }
 
         void Update()
@@ -45,6 +56,7 @@ namespace Assets.Arthur.Scripts
                     if (_blinkCdTimer > 0)
                     {
                         _blinkCdTimer -= Time.deltaTime;
+                        BlinkSlider.value += Time.deltaTime;
                     }
                     else
                     {
@@ -68,6 +80,7 @@ namespace Assets.Arthur.Scripts
                 if (_purgeCdTimer > 0)
                 {
                     _purgeCdTimer -= Time.deltaTime;
+                    PurgeSlider.value += Time.deltaTime;
                 }
                     
                 else
@@ -81,6 +94,7 @@ namespace Assets.Arthur.Scripts
         private void Blink()
         {
             IsUsingBlinkSpell = true;
+            BlinkSlider.value = 0;
             StartCoroutine(WaitForSeconds());
 
         }
@@ -94,6 +108,7 @@ namespace Assets.Arthur.Scripts
         private void Purge()
         {
             canUsePurge = false;
+            BlinkSlider.value = 0;
             PurgeAmount = (_stressManager.CurrentStressLevel / 100) * PurgePercentage;
             _stressManager.CurrentStressLevel -= PurgeAmount;
         }
