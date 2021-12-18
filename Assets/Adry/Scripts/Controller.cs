@@ -15,7 +15,7 @@ public class Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        //deplacement
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -23,24 +23,24 @@ public class Controller : MonoBehaviour
 
         controller.Move(move * MouvementSpeed * Time.deltaTime);
 
+        //jump
         velocity.y += gravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);;
-
         if (Input.GetKey(KeyCode.Space) && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
         }
 
-
+        //crouch
         if (Input.GetKey(KeyCode.LeftControl))
         {
-           controller.height = 1.5f;
+           controller.height = 1.2f;
         }
         else
         {
            controller.height = 2f;
         }
+
     }
 
     private void OnCollisionEnter(Collision collision)

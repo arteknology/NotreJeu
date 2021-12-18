@@ -15,7 +15,7 @@ namespace Assets.Arthur.Scripts
         public float CurrentStressLevel;
         
         [SerializeField]private float StressIncrement = 0.5f;
-        private float MaxStressLevel = 100;
+        private float MaxStressLevel = 100f;
         public float StressMultiplicator = 1;
 
         public float TimeBetweenIncrement = 0.2f;
@@ -67,7 +67,8 @@ namespace Assets.Arthur.Scripts
         
         private void IncreaseStressAmount()
         {
-            CurrentStressLevel = StressIncrement * StressMultiplicator;
+            CurrentStressLevel += StressIncrement * StressMultiplicator
+        ;
         }
 
         private void DecreaseStressAmount()
