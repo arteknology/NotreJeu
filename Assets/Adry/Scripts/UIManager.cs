@@ -51,7 +51,6 @@ public class UIManager : MonoBehaviour
         MenuPanel.SetActive(false);
         CamAnimator.Play("MenuCamPlay");
         Invoke("CamDestroy", 2.8f);
-
     }
 
     public void CamDestroy()

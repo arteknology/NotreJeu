@@ -13,6 +13,7 @@ public class Controller : MonoBehaviour
 
     private Vector3 velocity; 
 
+
     void FixedUpdate()
     {
         //deplacement
