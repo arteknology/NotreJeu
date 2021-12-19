@@ -91,7 +91,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 4793f97d01b6ce240a961b8a87e9ac1d, type: 3}
+        m_Texture: {fileID: 2800000, guid: c19657677e24de947bbfd90f46614908, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
@@ -192,7 +192,7 @@ Material:
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
     - _Height_Strength: 0.5
-    - _InvTilingScale: 1
+    - _InvTilingScale: 2
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
@@ -245,7 +245,7 @@ Material:
     - _TessellationMaxDisplacement: 0.01
     - _TessellationMode: 0
     - _TessellationShapeFactor: 0.75
-    - _TexWorldScale: 1
+    - _TexWorldScale: 0.5
     - _TexWorldScaleEmissive: 1
     - _Texture_Normals: 1
     - _Thickness: 1
