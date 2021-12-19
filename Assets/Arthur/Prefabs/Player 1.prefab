@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5223983450400237647
 Transform:
   m_ObjectHideFlags: 0
@@ -380,8 +380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5223983450400237646}
-  MouvementSpeed: 10
-  JumpHeight: 2
+  MouvementSpeed: 8
+  JumpHeight: 1.6
   gravity: -25
   isGrounded: 0
   CrouchSpeed: 12
