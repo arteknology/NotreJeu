@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1102 &-4440594523228093721
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -28,7 +28,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1107 &-1418751220812928050
 AnimatorStateMachine:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -37,16 +37,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 80427515659303136}
-    m_Position: {x: 230, y: 70, z: 0}
+    m_Position: {x: 340, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4440594523228093721}
-    m_Position: {x: 212.95865, y: 192.18253, z: 0}
+    m_Position: {x: 0, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -478885301340254361}
-    m_Position: {x: 180, y: 290, z: 0}
+    m_Position: {x: 240, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4050563572429808214}
-    m_Position: {x: 410, y: 250, z: 0}
+    m_Position: {x: 460, y: 240, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -59,7 +59,7 @@ AnimatorStateMachine:
   m_DefaultState: {fileID: -4440594523228093721}
 --- !u!1102 &-478885301340254361
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -107,7 +107,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
 --- !u!1102 &80427515659303136
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,7 +133,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1102 &4050563572429808214
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
