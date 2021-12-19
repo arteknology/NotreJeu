@@ -38,10 +38,10 @@ namespace Assets.Arthur.Scripts
 
         void Start()
         {
-            NormalBpm.enabled = true;
-            ThirtyPercentBpm.enabled = false;
-            SixtyPercentBpm.enabled = false;
-            MaxBpm.enabled = false;
+            NormalBpm.volume = 0.5f;
+            ThirtyPercentBpm.volume = 0f;
+            SixtyPercentBpm.volume = 0f;
+            MaxBpm.volume = 0f;
             
             _spellManager = GetComponent<SpellManager>();
             
@@ -56,35 +56,34 @@ namespace Assets.Arthur.Scripts
         {
             if (CurrentStressLevel < 30)
             {
-                NormalBpm.enabled = true;
-                ThirtyPercentBpm.enabled = false;
-                SixtyPercentBpm.enabled = false;
-                MaxBpm.enabled = false;
+                NormalBpm.volume = 0.35f;
+                ThirtyPercentBpm.volume = 0f;
+                SixtyPercentBpm.volume = 0f;
+                MaxBpm.volume = 0f;
             }
 
-            else if(CurrentStressLevel > 30 && CurrentStressLevel < 60)
+            else if(CurrentStressLevel > 31 && CurrentStressLevel < 59)
             {
-                NormalBpm.enabled = false;
-                ThirtyPercentBpm.enabled = true;
-                SixtyPercentBpm.enabled = false;
-                MaxBpm.enabled = false;
+                NormalBpm.volume = 0f;
+                ThirtyPercentBpm.volume = 0.4f;
+                SixtyPercentBpm.volume = 0f;
+                MaxBpm.volume = 0f;
             }
             
-            else if(CurrentStressLevel > 60 && CurrentStressLevel < 80)
+            else if(CurrentStressLevel > 60 && CurrentStressLevel < 79)
             {
-                NormalBpm.enabled = false;
-                ThirtyPercentBpm.enabled = false;
-                SixtyPercentBpm.enabled = true;
-                MaxBpm.enabled = false;
+                NormalBpm.volume = 0f;
+                ThirtyPercentBpm.volume = 0f;
+                SixtyPercentBpm.volume = 0.45f;
+                MaxBpm.volume = 0f;
             }
 
             else if(CurrentStressLevel > 80)
             {
-                NormalBpm.enabled = false;
-                ThirtyPercentBpm.enabled = false;
-                SixtyPercentBpm.enabled = false;
-                MaxBpm.enabled = true;
-                
+                NormalBpm.volume = 0f;
+                ThirtyPercentBpm.volume = 0f;
+                SixtyPercentBpm.volume = 0f;
+                MaxBpm.volume = 0.75f;
             }
             
             

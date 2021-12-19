@@ -10,6 +10,7 @@ namespace Assets.Arthur.Scripts
         private StressManager _stressManager;
         private EyeProperty eyeProperty;
         public bool IsUsingBlinkSpell = false;
+        public bool IsUsingPurgeSpell = false;
         private bool canUseBlink = true;
         private bool canUsePurge = true;
 
@@ -30,6 +31,8 @@ namespace Assets.Arthur.Scripts
         public Image PurgeKey;
         private Color BaseColor;
         private Color NewColor;
+
+        public Animator Anim;
         
         void Start()
         {
@@ -51,22 +54,25 @@ namespace Assets.Arthur.Scripts
 
             BaseColor = BlinkLogo.color;
             NewColor = BaseColor;
-            NewColor.a = 0.5f;
+            NewColor.a = 0.4f;
 
             BlinkLogo.color = NewColor;
             BlinkKey.color = NewColor;
             PurgeLogo.color = NewColor;
             PurgeKey.color = NewColor;
+            
+            Anim.SetBool("UseBlink", false);
+            Anim.SetBool("UsePurge", false);
         }
 
         void Update()
         {
             //BLINK
-            if (canUseBlink)
+            if (canUseBlink && !IsUsingPurgeSpell)
             {
                 if (Input.GetKey(KeyCode.E))
                 { 
-                    Blink();
+                    Anim.SetBool("UseBlink", true);
                 }
             }
             
@@ -74,6 +80,8 @@ namespace Assets.Arthur.Scripts
             {
                 if (!IsUsingBlinkSpell)
                 {
+                    Anim.SetBool("UseBlink", false);
+
                     if (_blinkCdTimer > 0)
                     {
                         _blinkCdTimer -= Time.deltaTime;
@@ -90,16 +98,19 @@ namespace Assets.Arthur.Scripts
             }
 
             //PURGE
-            if (canUsePurge && _stressManager.CurrentStressLevel > 10)
+            if (canUsePurge && _stressManager.CurrentStressLevel > 10 && !IsUsingBlinkSpell)
             {
                 if (Input.GetKey(KeyCode.R))
                 {
-                    Purge();
+                    Anim.SetBool("UsePurge", true);
                 }
             }
             
             else
             {
+                IsUsingPurgeSpell = false;
+                Anim.SetBool("UsePurge", false);
+                
                 if (_purgeCdTimer > 0)
                 {
                     _purgeCdTimer -= Time.deltaTime;
@@ -116,7 +127,7 @@ namespace Assets.Arthur.Scripts
             }
         }
 
-        private void Blink()
+        public void Blink()
         {
             IsUsingBlinkSpell = true;
             BlinkSlider.value = 0;
@@ -127,15 +138,16 @@ namespace Assets.Arthur.Scripts
 
         }
 
-        IEnumerator WaitForSeconds()
+        private IEnumerator WaitForSeconds()
         {
             yield return new WaitForSeconds(BlinkDuration);
             IsUsingBlinkSpell = false;
             canUseBlink = false;
             eyeProperty.OpenEyes = 1;
         }
-        private void Purge()
+        public  void Purge()
         {
+            IsUsingPurgeSpell = true;
             canUsePurge = false;
             PurgeSlider.value = 0;
             PurgeLogo.color = NewColor;
