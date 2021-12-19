@@ -176,13 +176,13 @@ MonoBehaviour:
     m_Value: 0.501
   NormalBias:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 4
   Diffusion:
     m_OverrideState: 1
     m_Value: 2
   MinMaxDistance:
     m_OverrideState: 1
-    m_Value: {x: 30, y: 123.78788}
+    m_Value: {x: 0, y: 120}
   Quality:
     m_OverrideState: 1
     m_Value: 0
@@ -380,10 +380,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72166780d7e3e9940b1cc3fb47710462, type: 3}
   m_Name: SSGR
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   Intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.142
   FresnelReflection:
     m_OverrideState: 1
     m_Value: 1
