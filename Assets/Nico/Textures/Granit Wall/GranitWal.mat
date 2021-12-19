@@ -24,7 +24,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GranitWal
-  m_Shader: {fileID: -6465566751694194690, guid: 316d4d0129b0cee409f3a5d67b506b66,
+  m_Shader: {fileID: -6465566751694194690, guid: db64e615c40ac9d4aaf5a6f1ce474dbe,
     type: 3}
   m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _TESSELLATION_PHONG
   m_LightmapFlags: 4
@@ -43,11 +43,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AMS:
-        m_Texture: {fileID: 2800000, guid: 0d68d479780b51143bf096a9c7bc6b6d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9f02fb2a4e709164a9986116e09706b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 45b158576fe0a924aac4383a9302155d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7796e63bdd7702f4ca1900a7f79e4c34, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -79,7 +79,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightMap:
-        m_Texture: {fileID: 2800000, guid: 9b22f6635b14df349ba5ad40daa564a6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 24a2a0452c5d5be4791b5afe744ad02b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _IridescenceMaskMap:
@@ -99,7 +99,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 1fa0140b397ec5f4a9f9ff8b34dc3db3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0c121f545ceed8641b0ec266ab1c061c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -228,6 +228,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
+    - _Scale: 1
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -248,7 +249,7 @@ Material:
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
-    - _Tesselation: 30
+    - _Tesselation: 26.9
     - _TessellationBackFaceCullEpsilon: -0.25
     - _TessellationFactorMaxDistance: 50
     - _TessellationFactorMinDistance: 20
@@ -260,7 +261,7 @@ Material:
     - _TexWorldScaleEmissive: 1
     - _Texture_Normals: 1
     - _Thickness: 1
-    - _Tiling: 0.5
+    - _Tiling: 0.25
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
