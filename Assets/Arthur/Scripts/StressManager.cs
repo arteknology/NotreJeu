@@ -29,12 +29,22 @@ namespace Assets.Arthur.Scripts
         private float _deathTimer;
 
         public Slider StressSlider;
+        public AudioSource NormalBpm;
+        public AudioSource ThirtyPercentBpm;
+        public AudioSource SixtyPercentBpm;
+        public AudioSource MaxBpm;
 
         private List<GameObject> _passedMultipliers = new List<GameObject>(); 
 
         void Start()
         {
+            NormalBpm.volume = 0.5f;
+            ThirtyPercentBpm.volume = 0f;
+            SixtyPercentBpm.volume = 0f;
+            MaxBpm.volume = 0f;
+            
             _spellManager = GetComponent<SpellManager>();
+            
             CurrentStressLevel = _startStressLevel;
             _mainTimer = TimeBetweenIncrement;
             _decreaseTimer = TimeBetweenDecrement;
@@ -44,6 +54,39 @@ namespace Assets.Arthur.Scripts
 
         void Update()
         {
+            if (CurrentStressLevel < 30)
+            {
+                NormalBpm.volume = 0.35f;
+                ThirtyPercentBpm.volume = 0f;
+                SixtyPercentBpm.volume = 0f;
+                MaxBpm.volume = 0f;
+            }
+
+            else if(CurrentStressLevel > 31 && CurrentStressLevel < 59)
+            {
+                NormalBpm.volume = 0f;
+                ThirtyPercentBpm.volume = 0.4f;
+                SixtyPercentBpm.volume = 0f;
+                MaxBpm.volume = 0f;
+            }
+            
+            else if(CurrentStressLevel > 60 && CurrentStressLevel < 79)
+            {
+                NormalBpm.volume = 0f;
+                ThirtyPercentBpm.volume = 0f;
+                SixtyPercentBpm.volume = 0.45f;
+                MaxBpm.volume = 0f;
+            }
+
+            else if(CurrentStressLevel > 80)
+            {
+                NormalBpm.volume = 0f;
+                ThirtyPercentBpm.volume = 0f;
+                SixtyPercentBpm.volume = 0f;
+                MaxBpm.volume = 0.75f;
+            }
+            
+            
             StressSlider.value = CurrentStressLevel;
             
             isUsingBlinkSpell = _spellManager.IsUsingBlinkSpell;

@@ -10,6 +10,7 @@ namespace Assets.Arthur.Scripts
         private StressManager _stressManager;
         public EyeProperty eyeProperty;
         public bool IsUsingBlinkSpell = false;
+        public bool IsUsingPurgeSpell = false;
         private bool canUseBlink = true;
         private bool canUsePurge = true;
 
@@ -24,9 +25,21 @@ namespace Assets.Arthur.Scripts
 
         public Slider BlinkSlider;
         public Slider PurgeSlider;
+        public Image BlinkLogo;
+        public Image PurgeLogo;
+        public Image BlinkKey;
+        public Image PurgeKey;
+        private Color BaseColor;
+        private Color NewColor;
 
+        public Animator Anim;
+        public AudioClip BlinkSound;
+        public AudioClip PurgeSound;
+        private AudioSource AudioSource;
+        
         void Start()
         {
+            AudioSource = GetComponent<AudioSource>();
             _stressManager = GetComponent<StressManager>();
             //eyeProperty = GetComponent<EyeProperty>();
             eyeProperty.OpenEyes = 1;
@@ -43,16 +56,29 @@ namespace Assets.Arthur.Scripts
             canUseBlink = false;
             canUsePurge = false;
 
+            BaseColor = BlinkLogo.color;
+            NewColor = BaseColor;
+            NewColor.a = 0.4f;
+
+            BlinkLogo.color = NewColor;
+            BlinkKey.color = NewColor;
+            PurgeLogo.color = NewColor;
+            PurgeKey.color = NewColor;
+            
+            Anim.SetBool("UseBlink", false);
+            Anim.SetBool("UsePurge", false);
         }
 
         void Update()
         {
             //BLINK
-            if (canUseBlink)
+            if (canUseBlink && !IsUsingPurgeSpell)
             {
                 if (Input.GetKey(KeyCode.E))
                 { 
-                    Blink();
+                    Anim.SetBool("UseBlink", true);
+                    AudioSource.clip = BlinkSound;
+                    AudioSource.Play();
                 }
             }
             
@@ -60,6 +86,8 @@ namespace Assets.Arthur.Scripts
             {
                 if (!IsUsingBlinkSpell)
                 {
+                    Anim.SetBool("UseBlink", false);
+
                     if (_blinkCdTimer > 0)
                     {
                         _blinkCdTimer -= Time.deltaTime;
@@ -68,22 +96,29 @@ namespace Assets.Arthur.Scripts
                     else
                     {
                         _blinkCdTimer = BlinkCoolDown;
+                        BlinkLogo.color = BaseColor;
+                        BlinkKey.color = BaseColor;
                         canUseBlink = true;
                     }
                 }
             }
 
             //PURGE
-            if (canUsePurge && _stressManager.CurrentStressLevel > 10)
+            if (canUsePurge && _stressManager.CurrentStressLevel > 10 && !IsUsingBlinkSpell)
             {
                 if (Input.GetKey(KeyCode.R))
                 {
-                    Purge();
+                    Anim.SetBool("UsePurge", true);
+                    AudioSource.clip = PurgeSound;
+                    AudioSource.Play();
                 }
             }
             
             else
             {
+                IsUsingPurgeSpell = false;
+                Anim.SetBool("UsePurge", false);
+                
                 if (_purgeCdTimer > 0)
                 {
                     _purgeCdTimer -= Time.deltaTime;
@@ -93,31 +128,38 @@ namespace Assets.Arthur.Scripts
                 else
                 {
                     _purgeCdTimer = PurgeCoolDown;
+                    PurgeLogo.color = BaseColor;
+                    PurgeKey.color = BaseColor;
                     canUsePurge = true;
                 }
             }
         }
 
-        private void Blink()
+        public void Blink()
         {
             IsUsingBlinkSpell = true;
             BlinkSlider.value = 0;
             eyeProperty.OpenEyes = 0;
+            BlinkLogo.color = NewColor;
+            BlinkKey.color = NewColor;
             StartCoroutine(WaitForSeconds());
 
         }
 
-        IEnumerator WaitForSeconds()
+        private IEnumerator WaitForSeconds()
         {
             yield return new WaitForSeconds(BlinkDuration);
             IsUsingBlinkSpell = false;
             canUseBlink = false;
             eyeProperty.OpenEyes = 1;
         }
-        private void Purge()
+        public  void Purge()
         {
+            IsUsingPurgeSpell = true;
             canUsePurge = false;
             PurgeSlider.value = 0;
+            PurgeLogo.color = NewColor;
+            PurgeKey.color = NewColor;
             PurgeAmount = (_stressManager.CurrentStressLevel / 100) * PurgePercentage;
             _stressManager.CurrentStressLevel -= PurgeAmount;
         }
