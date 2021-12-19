@@ -36,6 +36,7 @@ namespace Assets.Arthur.Scripts
         public AudioClip BlinkSound;
         public AudioClip PurgeSound;
         private AudioSource AudioSource;
+        public GameObject PurgeParticles;
         
         void Start()
         {
@@ -160,6 +161,8 @@ namespace Assets.Arthur.Scripts
             PurgeSlider.value = 0;
             PurgeLogo.color = NewColor;
             PurgeKey.color = NewColor;
+            GameObject purgeParticles = Instantiate(PurgeParticles, transform.position, PurgeParticles.transform.rotation);
+            Destroy(purgeParticles, 2f);
             PurgeAmount = (_stressManager.CurrentStressLevel / 100) * PurgePercentage;
             _stressManager.CurrentStressLevel -= PurgeAmount;
         }
