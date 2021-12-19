@@ -11,12 +11,14 @@ public class UIManager : MonoBehaviour
     public Camera Cam;
     public GameObject FpsCam;
     public GameObject IGUI;
+    public GameObject Credits;
 
     void Start()
     {
         MenuPanel.SetActive(true);
         SettingsPanel.SetActive(false);
         IGUI.SetActive(false);
+        Credits.SetActive(false);
     }
 
     public void SettingsButton()
@@ -41,6 +43,25 @@ public class UIManager : MonoBehaviour
     public void MenuDelay()
     {
         MenuPanel.SetActive(true);
+    }
+
+    public void BackButton2()
+    {
+        Invoke("MenuDelay", 0.5f);
+        Credits.SetActive(false);
+        CamAnimator.Play("CreditsOut");
+    }
+
+    public void CreditsBut()
+    {
+        MenuPanel.SetActive(false);
+        CamAnimator.Play("CreditsIn");
+        Invoke("CreditsDelay", 0.6f);
+    }
+
+    public void CreditsDelay()
+    {
+        Credits.SetActive(true);
     }
 
     public void QuitButton()
