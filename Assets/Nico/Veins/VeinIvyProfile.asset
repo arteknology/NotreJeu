@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ivyProfile:
     showAdvanced: 1
-    showGrowthFoldout: 0
+    showGrowthFoldout: 1
     showAIFoldout: 1
     showMeshFoldout: 1
     collisionMask:
@@ -24,8 +24,8 @@ MonoBehaviour:
     leafMaterial: {fileID: 2100000, guid: 19df23cae8ae5ad49907811fe5279188, type: 2}
     ivyStepDistance: 0.1
     ivyLeafSize: 0.15
-    ivyBranchSize: 0.001
-    maxFloatLength: 0.2
+    ivyBranchSize: 0.025
+    maxFloatLength: 2
     maxAdhesionDistance: 2
     minLength: 0.5
     maxLength: 3
@@ -33,7 +33,7 @@ MonoBehaviour:
     primaryWeight: 0.71999997
     randomWeight: 4
     gravityWeight: 0
-    adhesionWeight: 4
+    adhesionWeight: 1
     branchingProbability: 0.19999999
     leafProbability: 0
     leafSunlightBonus: 0
