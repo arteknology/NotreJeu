@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour
     public float gravity = -20f;
     public bool isGrounded;
     public float CrouchSpeed = 12f;
+    public bool isUnderObj = false;
 
     private Vector3 velocity;
 
@@ -45,7 +46,7 @@ public class Controller : MonoBehaviour
         }
         else
         {
-            if (controller.height < 2f)
+            if (controller.height < 2f && !isUnderObj)
             {
                 controller.height = Mathf.Lerp(controller.height, 2f, Time.deltaTime * CrouchSpeed * 3f );
             }
@@ -65,6 +66,21 @@ public class Controller : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("UnderObj"))
+        {
+            isUnderObj = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("UnderObj"))
+        {
+            isUnderObj = false;
         }
     }
 
