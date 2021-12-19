@@ -24,7 +24,13 @@ namespace Assets.Arthur.Scripts
 
         public Slider BlinkSlider;
         public Slider PurgeSlider;
-
+        public Image BlinkLogo;
+        public Image PurgeLogo;
+        public Image BlinkKey;
+        public Image PurgeKey;
+        private Color BaseColor;
+        private Color NewColor;
+        
         void Start()
         {
             _stressManager = GetComponent<StressManager>();
@@ -43,6 +49,14 @@ namespace Assets.Arthur.Scripts
             canUseBlink = false;
             canUsePurge = false;
 
+            BaseColor = BlinkLogo.color;
+            NewColor = BaseColor;
+            NewColor.a = 0.5f;
+
+            BlinkLogo.color = NewColor;
+            BlinkKey.color = NewColor;
+            PurgeLogo.color = NewColor;
+            PurgeKey.color = NewColor;
         }
 
         void Update()
@@ -68,6 +82,8 @@ namespace Assets.Arthur.Scripts
                     else
                     {
                         _blinkCdTimer = BlinkCoolDown;
+                        BlinkLogo.color = BaseColor;
+                        BlinkKey.color = BaseColor;
                         canUseBlink = true;
                     }
                 }
@@ -93,6 +109,8 @@ namespace Assets.Arthur.Scripts
                 else
                 {
                     _purgeCdTimer = PurgeCoolDown;
+                    PurgeLogo.color = BaseColor;
+                    PurgeKey.color = BaseColor;
                     canUsePurge = true;
                 }
             }
@@ -103,6 +121,8 @@ namespace Assets.Arthur.Scripts
             IsUsingBlinkSpell = true;
             BlinkSlider.value = 0;
             eyeProperty.OpenEyes = 0;
+            BlinkLogo.color = NewColor;
+            BlinkKey.color = NewColor;
             StartCoroutine(WaitForSeconds());
 
         }
@@ -118,6 +138,8 @@ namespace Assets.Arthur.Scripts
         {
             canUsePurge = false;
             PurgeSlider.value = 0;
+            PurgeLogo.color = NewColor;
+            PurgeKey.color = NewColor;
             PurgeAmount = (_stressManager.CurrentStressLevel / 100) * PurgePercentage;
             _stressManager.CurrentStressLevel -= PurgeAmount;
         }

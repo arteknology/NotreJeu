@@ -29,12 +29,22 @@ namespace Assets.Arthur.Scripts
         private float _deathTimer;
 
         public Slider StressSlider;
+        public AudioSource NormalBpm;
+        public AudioSource ThirtyPercentBpm;
+        public AudioSource SixtyPercentBpm;
+        public AudioSource MaxBpm;
 
         private List<GameObject> _passedMultipliers = new List<GameObject>(); 
 
         void Start()
         {
+            NormalBpm.enabled = true;
+            ThirtyPercentBpm.enabled = false;
+            SixtyPercentBpm.enabled = false;
+            MaxBpm.enabled = false;
+            
             _spellManager = GetComponent<SpellManager>();
+            
             CurrentStressLevel = _startStressLevel;
             _mainTimer = TimeBetweenIncrement;
             _decreaseTimer = TimeBetweenDecrement;
@@ -44,6 +54,40 @@ namespace Assets.Arthur.Scripts
 
         void Update()
         {
+            if (CurrentStressLevel < 30)
+            {
+                NormalBpm.enabled = true;
+                ThirtyPercentBpm.enabled = false;
+                SixtyPercentBpm.enabled = false;
+                MaxBpm.enabled = false;
+            }
+
+            else if(CurrentStressLevel > 30 && CurrentStressLevel < 60)
+            {
+                NormalBpm.enabled = false;
+                ThirtyPercentBpm.enabled = true;
+                SixtyPercentBpm.enabled = false;
+                MaxBpm.enabled = false;
+            }
+            
+            else if(CurrentStressLevel > 60 && CurrentStressLevel < 80)
+            {
+                NormalBpm.enabled = false;
+                ThirtyPercentBpm.enabled = false;
+                SixtyPercentBpm.enabled = true;
+                MaxBpm.enabled = false;
+            }
+
+            else if(CurrentStressLevel > 80)
+            {
+                NormalBpm.enabled = false;
+                ThirtyPercentBpm.enabled = false;
+                SixtyPercentBpm.enabled = false;
+                MaxBpm.enabled = true;
+                
+            }
+            
+            
             StressSlider.value = CurrentStressLevel;
             
             isUsingBlinkSpell = _spellManager.IsUsingBlinkSpell;
