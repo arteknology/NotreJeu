@@ -24,49 +24,9 @@
           <e p="Eye" t="Include">
             <e p="EyeProperty.cs" t="Include" />
           </e>
-          <e p="RemyUnity - sg-node-library" t="Include">
-            <e p="Noise" t="Include">
-              <e p="HLSL" t="Include">
-                <e p="cellular2D.hlsl" t="Include" />
-                <e p="cellular2x2.hlsl" t="Include" />
-                <e p="cellular2x2x2.hlsl" t="Include" />
-                <e p="cellular3D.hlsl" t="Include" />
-                <e p="classicnoise2D.hlsl" t="Include" />
-                <e p="classicnoise3D.hlsl" t="Include" />
-                <e p="classicnoise4D.hlsl" t="Include" />
-                <e p="Common.hlsl" t="Include" />
-                <e p="noise2D.hlsl" t="Include" />
-                <e p="noise3D.hlsl" t="Include" />
-                <e p="noise3Dgrad.hlsl" t="Include" />
-                <e p="noise4D.hlsl" t="Include" />
-                <e p="psrdnoise2D.hlsl" t="Include" />
-              </e>
-            </e>
-            <e p="Procedural" t="Include">
-              <e p="Signed Distance" t="Include">
-                <e p="RoundedPolygon.hlsl" t="Include" />
-              </e>
-            </e>
-          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="CustomPasses" t="Include">
-            <e p="AnamorphicBlur" t="Include">
-              <e p="AnamorphicBlur.cs" t="Include" />
-            </e>
-            <e p="AR" t="Include">
-              <e p="SyncVideoAndAnim.cs" t="Include" />
-            </e>
-            <e p="Blur" t="Include">
-              <e p="SlightBlur.cs" t="Include" />
-              <e p="SlightBlurNormals.cs" t="Include" />
-            </e>
-            <e p="FPS Foreground" t="Include">
-              <e p="FPSForeground.cs" t="Include" />
-            </e>
-            <e p="Fur" t="Include">
-              <e p="Fur.cs" t="Include" />
-            </e>
             <e p="Glass" t="Include">
               <e p="OneDepth.shader" t="Include" />
             </e>
@@ -75,31 +35,6 @@
             </e>
             <e p="Outline" t="Include">
               <e p="Outline.cs" t="Include" />
-            </e>
-            <e p="RenderMotionVectors" t="Include">
-              <e p="RenderMotionVectors.cs" t="Include" />
-            </e>
-            <e p="RenderWithNormalBuffer" t="Include">
-              <e p="RenderWithNormalBuffer.cs" t="Include" />
-            </e>
-            <e p="SeeThrough" t="Include">
-              <e p="SeeThrough.cs" t="Include" />
-            </e>
-            <e p="Selection" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="SelectionColor.cs" t="Include" />
-              </e>
-            </e>
-            <e p="TIPS" t="Include">
-              <e p="TIPS.cs" t="Include" />
-              <e p="TIPS_2.cs" t="Include" />
-            </e>
-            <e p="UI_Blur" t="Include">
-              <e p="UI_Blur.cs" t="Include" />
-            </e>
-            <e p="Video Playback Without TAA" t="Include">
-              <e p="Video Playback Without TAA.cs" t="Include" />
-              <e p="VideoPlaybackWithoutTAAPostProcess.cs" t="Include" />
             </e>
           </e>
           <e p="hedera-1.2.3" t="Include">
@@ -138,16 +73,30 @@
               </e>
             </e>
           </e>
+          <e p="RemyUnity - sg-node-library" t="Include">
+            <e p="Noise" t="Include">
+              <e p="HLSL" t="Include">
+                <e p="cellular2D.hlsl" t="Include" />
+                <e p="cellular2x2.hlsl" t="Include" />
+                <e p="cellular2x2x2.hlsl" t="Include" />
+                <e p="cellular3D.hlsl" t="Include" />
+                <e p="classicnoise2D.hlsl" t="Include" />
+                <e p="classicnoise3D.hlsl" t="Include" />
+                <e p="classicnoise4D.hlsl" t="Include" />
+                <e p="Common.hlsl" t="Include" />
+                <e p="noise2D.hlsl" t="Include" />
+                <e p="noise3D.hlsl" t="Include" />
+                <e p="noise3Dgrad.hlsl" t="Include" />
+                <e p="noise4D.hlsl" t="Include" />
+                <e p="psrdnoise2D.hlsl" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="SSGI &amp; SSGR" t="Include">
             <e p="HLSL" t="Include">
-              <e p="BoxOcclusion.cginc" t="Include" />
-              <e p="Includes.hlsl" t="Include" />
               <e p="SSGIUtils.cginc" t="Include" />
             </e>
-            <e p="PostProcessSetup.cs" t="Include" />
             <e p="SSGI" t="Include">
-              <e p="AO.cs" t="Include" />
-              <e p="AO.shader" t="Include" />
               <e p="SSGI.cs" t="Include" />
               <e p="SSGI.shader" t="Include" />
               <e p="SSGIBeforeTransparent.cs" t="Include" />

@@ -8,6 +8,7 @@ namespace Assets.Arthur.Scripts
     public class SpellManager : MonoBehaviour
     {
         private StressManager _stressManager;
+        private EyeProperty eyeProperty;
         public bool IsUsingBlinkSpell = false;
         private bool canUseBlink = true;
         private bool canUsePurge = true;
@@ -27,6 +28,9 @@ namespace Assets.Arthur.Scripts
         void Start()
         {
             _stressManager = GetComponent<StressManager>();
+            eyeProperty = GetComponent<EyeProperty>();
+            eyeProperty.OpenEyes = 1;
+            
             _blinkCdTimer = BlinkCoolDown;
             _purgeCdTimer = PurgeCoolDown;
             
@@ -70,7 +74,7 @@ namespace Assets.Arthur.Scripts
             }
 
             //PURGE
-            if (canUsePurge)
+            if (canUsePurge && _stressManager.CurrentStressLevel > 10)
             {
                 if (Input.GetKey(KeyCode.R))
                 {
@@ -98,6 +102,7 @@ namespace Assets.Arthur.Scripts
         {
             IsUsingBlinkSpell = true;
             BlinkSlider.value = 0;
+            eyeProperty.OpenEyes = 0;
             StartCoroutine(WaitForSeconds());
 
         }
@@ -107,6 +112,7 @@ namespace Assets.Arthur.Scripts
             yield return new WaitForSeconds(BlinkDuration);
             IsUsingBlinkSpell = false;
             canUseBlink = false;
+            eyeProperty.OpenEyes = 1;
         }
         private void Purge()
         {

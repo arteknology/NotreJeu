@@ -104,7 +104,7 @@ namespace Assets.Arthur.Scripts
 
             else
             {
-                if (CurrentStressLevel >= MaxStressLevel)
+                if (CurrentStressLevel == MaxStressLevel)
                 {
                     Die();
                 }
