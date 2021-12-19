@@ -29,7 +29,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fece5d37506af5f47b25ac9a342b57c9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Triplanar_9589b57fe8ae43e899b43c19529d8419_Texture_1:
@@ -65,7 +65,7 @@ Material:
     - _CullMode: 0
     - _CullModeForward: 0
     - _DepthOffsetEnable: 0
-    - _Die: 0.238
+    - _Die: 0.926
     - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
@@ -107,9 +107,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Center_Offset: {r: 0, g: 1, b: 0, a: 0}
+    - _Color: {r: 0, g: 4, b: 0.5803922, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MinMax: {r: 0, g: 1, b: 0, a: 0}
+    - _MinMax: {r: -0.1, g: 1.2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7822145755922451574
 MonoBehaviour:
