@@ -36,6 +36,9 @@ namespace Assets.Arthur.Scripts
             PurgeSlider.maxValue = PurgeCoolDown;
             PurgeSlider.value = 0;
 
+            canUseBlink = false;
+            canUsePurge = false;
+
         }
 
         void Update()
@@ -108,7 +111,7 @@ namespace Assets.Arthur.Scripts
         private void Purge()
         {
             canUsePurge = false;
-            BlinkSlider.value = 0;
+            PurgeSlider.value = 0;
             PurgeAmount = (_stressManager.CurrentStressLevel / 100) * PurgePercentage;
             _stressManager.CurrentStressLevel -= PurgeAmount;
         }
