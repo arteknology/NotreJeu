@@ -44,7 +44,7 @@ namespace Assets.Arthur.Scripts
         void Update()
         {
             //BLINK
-            if (canUseBlink)
+            if (canUseBlink && _stressManager.CurrentStressLevel > 10)
             {
                 if (Input.GetKey(KeyCode.E))
                 { 
