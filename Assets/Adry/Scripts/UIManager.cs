@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public GameObject FpsCam;
     public GameObject IGUI;
     public GameObject Credits;
+    public GameObject MenuCam;
+    public GameObject MiniScene;
 
     void Start()
     {
@@ -19,6 +21,8 @@ public class UIManager : MonoBehaviour
         SettingsPanel.SetActive(false);
         IGUI.SetActive(false);
         Credits.SetActive(false);
+        MenuCam.SetActive(true);
+        MiniScene.SetActive(true);
     }
 
     public void SettingsButton()
@@ -72,13 +76,15 @@ public class UIManager : MonoBehaviour
     public void PlayButton()
     {
         MenuPanel.SetActive(false);
+
         CamAnimator.Play("MenuCamPlay");
-        Invoke("CamDestroy", 3.3f);
+        Invoke("MenuCamStop", 3.3f);
     }
 
-    public void CamDestroy()
+    public void MenuCamStop()
     {
-        Destroy(Cam);
+        MenuCam.SetActive(false);
+        MiniScene.SetActive(false);
         FpsCam.SetActive(true);
         IGUI.SetActive(true);
     }
