@@ -26,7 +26,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 8096}
   vertical: 0
-  controlID: 13554
+  controlID: 16003
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -50,7 +50,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 679
     y: 73
-    width: 748
+    width: 673
     height: 918
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -286,9 +286,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 8.062149, y: -2.4280794, z: -17.968456}
+    m_Target: {x: 5.5805483, y: -7.7617064, z: -21.140759}
     speed: 2
-    m_Value: {x: 8.062149, y: -2.4280794, z: -17.968456}
+    m_Value: {x: 5.5805483, y: -7.7617064, z: -21.140759}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -335,13 +335,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.12353489, y: 0.59303105, z: -0.09334718, w: 0.79064906}
+    m_Target: {x: 0.24255642, y: -0.68441343, z: 0.25874752, w: 0.6376382}
     speed: 2
-    m_Value: {x: 0.124812216, y: 0.59147143, z: -0.09401338, w: 0.79104054}
+    m_Value: {x: 0.2434159, y: -0.68375486, z: 0.25967228, w: 0.637023}
   m_Size:
-    m_Target: 4.797002
+    m_Target: 7.031359
     speed: 2
-    m_Value: 4.5269914
+    m_Value: 7.0161366
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -434,21 +434,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Nico/Terrain
+    - Assets/Nico/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Nico/Terrain
+  - Assets/Nico/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\7 - Game Jam\NotreJeu
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e0c40000
-    m_LastClickedID: 50400
+    m_SelectedIDs: 00770000
+    m_LastClickedID: 30464
     m_ExpandedIDs: 00000000b6760000c676000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -502,8 +502,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 8ea00000
+    m_LastClickedInstanceID: 41102
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000000000000606900006e9b0000
     m_RenameOverlay:
@@ -521,7 +521,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 3}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0430ffff10fbffffaa9b000096a00000
+      m_SelectedIDs: 8ea00000
+      m_LastClickedID: 41102
+      m_ExpandedIDs: 04aafdff0430ffff10fbffffaa9b000096a00000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -634,7 +634,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 679
     y: 0
-    width: 750
+    width: 675
     height: 939
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -644,7 +644,7 @@ MonoBehaviour:
   - {fileID: 8}
   - {fileID: 9}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1563,9 +1563,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1429
+    x: 1354
     y: 0
-    width: 491
+    width: 566
     height: 939
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
@@ -1597,9 +1597,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1429
+    x: 1354
     y: 73
-    width: 490
+    width: 565
     height: 918
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
