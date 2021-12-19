@@ -56,7 +56,7 @@ namespace Assets.Arthur.Scripts
         {
             if (CurrentStressLevel < 30)
             {
-                NormalBpm.volume = 0.35f;
+                NormalBpm.volume = 0.45f;
                 ThirtyPercentBpm.volume = 0f;
                 SixtyPercentBpm.volume = 0f;
                 MaxBpm.volume = 0f;
@@ -65,7 +65,7 @@ namespace Assets.Arthur.Scripts
             else if(CurrentStressLevel > 31 && CurrentStressLevel < 59)
             {
                 NormalBpm.volume = 0f;
-                ThirtyPercentBpm.volume = 0.4f;
+                ThirtyPercentBpm.volume = 0.65f;
                 SixtyPercentBpm.volume = 0f;
                 MaxBpm.volume = 0f;
             }
@@ -74,7 +74,7 @@ namespace Assets.Arthur.Scripts
             {
                 NormalBpm.volume = 0f;
                 ThirtyPercentBpm.volume = 0f;
-                SixtyPercentBpm.volume = 0.45f;
+                SixtyPercentBpm.volume = 0.75f;
                 MaxBpm.volume = 0f;
             }
 
@@ -83,7 +83,7 @@ namespace Assets.Arthur.Scripts
                 NormalBpm.volume = 0f;
                 ThirtyPercentBpm.volume = 0f;
                 SixtyPercentBpm.volume = 0f;
-                MaxBpm.volume = 0.75f;
+                MaxBpm.volume = 0.85f;
             }
             
             
