@@ -8,7 +8,7 @@ namespace Assets.Arthur.Scripts
     public class SpellManager : MonoBehaviour
     {
         private StressManager _stressManager;
-        private EyeProperty eyeProperty;
+        public EyeProperty eyeProperty;
         public bool IsUsingBlinkSpell = false;
         private bool canUseBlink = true;
         private bool canUsePurge = true;
@@ -28,7 +28,7 @@ namespace Assets.Arthur.Scripts
         void Start()
         {
             _stressManager = GetComponent<StressManager>();
-            eyeProperty = GetComponent<EyeProperty>();
+            //eyeProperty = GetComponent<EyeProperty>();
             eyeProperty.OpenEyes = 1;
             
             _blinkCdTimer = BlinkCoolDown;
