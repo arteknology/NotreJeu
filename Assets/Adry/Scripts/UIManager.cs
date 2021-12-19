@@ -10,11 +10,13 @@ public class UIManager : MonoBehaviour
     public Animator CamAnimator;
     public Camera Cam;
     public GameObject FpsCam;
+    public GameObject IGUI;
 
     void Start()
     {
         MenuPanel.SetActive(true);
         SettingsPanel.SetActive(false);
+        IGUI.SetActive(false);
     }
 
     public void SettingsButton()
@@ -57,6 +59,7 @@ public class UIManager : MonoBehaviour
     {
         Destroy(Cam);
         FpsCam.SetActive(true);
+        IGUI.SetActive(true);
     }
 
 }
