@@ -33,9 +33,13 @@ namespace Assets.Arthur.Scripts
         private Color NewColor;
 
         public Animator Anim;
+        public AudioClip BlinkSound;
+        public AudioClip PurgeSound;
+        private AudioSource AudioSource;
         
         void Start()
         {
+            AudioSource = GetComponent<AudioSource>();
             _stressManager = GetComponent<StressManager>();
             eyeProperty = GetComponent<EyeProperty>();
             eyeProperty.OpenEyes = 1;
@@ -73,6 +77,8 @@ namespace Assets.Arthur.Scripts
                 if (Input.GetKey(KeyCode.E))
                 { 
                     Anim.SetBool("UseBlink", true);
+                    AudioSource.clip = BlinkSound;
+                    AudioSource.Play();
                 }
             }
             
@@ -103,6 +109,8 @@ namespace Assets.Arthur.Scripts
                 if (Input.GetKey(KeyCode.R))
                 {
                     Anim.SetBool("UsePurge", true);
+                    AudioSource.clip = PurgeSound;
+                    AudioSource.Play();
                 }
             }
             
