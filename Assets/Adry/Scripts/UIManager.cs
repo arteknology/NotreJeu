@@ -79,7 +79,7 @@ public class UIManager : MonoBehaviour
         MenuPanel.SetActive(false);
 
         CamAnimator.Play("MenuCamPlay");
-        Invoke("MenuCamStop", 4f);
+        Invoke("MenuCamStop", 4.4f);
     }
 
     public void MenuCamStop()
