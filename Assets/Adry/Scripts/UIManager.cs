@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -87,6 +88,11 @@ public class UIManager : MonoBehaviour
         MiniScene.SetActive(false);
         FpsCam.SetActive(true);
         IGUI.SetActive(true);
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MenuTest");
     }
 
 }

@@ -130,7 +130,6 @@ namespace Assets.Arthur.Scripts
                     StressSound.SetActive(false);
                     _camera.enabled = false;
                     _controller.enabled = false;
-                    PlayerCamAnimator.Play("AnimDie");
                 }
                 _mainTimer = TimeBetweenIncrement;
             }
