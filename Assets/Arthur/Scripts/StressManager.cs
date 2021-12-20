@@ -39,11 +39,20 @@ namespace Assets.Arthur.Scripts
         public AudioSource SixtyPercentBpm;
         public AudioSource MaxBpm;
 
+        public FpsCam _camera;
+        public GameObject StressSound;
+        public GameObject UIIG;
+
+        public Animation PlayerCamAnimator;
+        public AnimationClip AnimDie;
+
         private List<GameObject> _passedMultipliers = new List<GameObject>(); 
 
         void Start()
         {
             DiePanel.SetActive(false);
+            StressSound.SetActive(true);
+            UIIG.SetActive(true);
             
             _controller = GetComponent<Controller>();
             _bloodLevel = GetComponent<BloodProperty>();
@@ -118,7 +127,10 @@ namespace Assets.Arthur.Scripts
                 }
                 else
                 {
-                    Die();
+                    StressSound.SetActive(false);
+                    _camera.enabled = false;
+                    _controller.enabled = false;
+                    PlayerCamAnimator.Play("AnimDie");
                 }
                 _mainTimer = TimeBetweenIncrement;
             }
@@ -151,14 +163,11 @@ namespace Assets.Arthur.Scripts
             }
         }
         
-        private void Die()
+        public void Die()
         {
-            NormalBpm.volume = 0f;
-            ThirtyPercentBpm.volume = 0f;
-            SixtyPercentBpm.volume = 0f;
-            MaxBpm.volume = 0f;
-            _controller.enabled = false;
+            UIIG.SetActive(false);
             DiePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
         
         ///
