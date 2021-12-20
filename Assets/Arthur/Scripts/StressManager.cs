@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace Assets.Arthur.Scripts
@@ -8,6 +9,7 @@ namespace Assets.Arthur.Scripts
     [RequireComponent(typeof(SpellManager))]
     public class StressManager : MonoBehaviour
     {
+        private Controller _controller;
         private SpellManager _spellManager;
         private bool isUsingBlinkSpell = false;
         public bool isProtected = false;
@@ -22,13 +24,16 @@ namespace Assets.Arthur.Scripts
         public float TimeBetweenIncrement = 0.2f;
         public float TimeBetweenDecrement = 0.4f;
         public float TimeBeforeDeath = 3f;
+        public GameObject DiePanel;
         private float DecreaseAmount;
         
         private float _mainTimer;
         private float _decreaseTimer;
         private float _deathTimer;
 
-        public Slider StressSlider;
+        private MadnessProperty _stressSlider;
+        private BloodProperty _bloodLevel;
+        
         public AudioSource NormalBpm;
         public AudioSource ThirtyPercentBpm;
         public AudioSource SixtyPercentBpm;
@@ -38,31 +43,40 @@ namespace Assets.Arthur.Scripts
 
         void Start()
         {
+            DiePanel.SetActive(false);
+            
+            _controller = GetComponent<Controller>();
+            _bloodLevel = GetComponent<BloodProperty>();
+            _stressSlider = GetComponent<MadnessProperty>();
+            _spellManager = GetComponent<SpellManager>();
+
+            _bloodLevel.Blood = 0f;
+            _stressSlider.Madness = 0f;
+            
             NormalBpm.volume = 0.5f;
             ThirtyPercentBpm.volume = 0f;
             SixtyPercentBpm.volume = 0f;
             MaxBpm.volume = 0f;
-            
-            _spellManager = GetComponent<SpellManager>();
-            
+
             CurrentStressLevel = _startStressLevel;
             _mainTimer = TimeBetweenIncrement;
             _decreaseTimer = TimeBetweenDecrement;
             _deathTimer = TimeBeforeDeath;
-            StressSlider.value = _startStressLevel;
         }
 
         void Update()
         {
+            _stressSlider.Madness = CurrentStressLevel / 100;
+            
             if (CurrentStressLevel < 30)
             {
-                NormalBpm.volume = 0.45f;
+                NormalBpm.volume = 0.55f;
                 ThirtyPercentBpm.volume = 0f;
                 SixtyPercentBpm.volume = 0f;
                 MaxBpm.volume = 0f;
             }
 
-            else if(CurrentStressLevel > 31 && CurrentStressLevel < 59)
+            else if(CurrentStressLevel > 31 && CurrentStressLevel < 49)
             {
                 NormalBpm.volume = 0f;
                 ThirtyPercentBpm.volume = 0.65f;
@@ -70,7 +84,7 @@ namespace Assets.Arthur.Scripts
                 MaxBpm.volume = 0f;
             }
             
-            else if(CurrentStressLevel > 60 && CurrentStressLevel < 79)
+            else if(CurrentStressLevel > 50 && CurrentStressLevel < 60)
             {
                 NormalBpm.volume = 0f;
                 ThirtyPercentBpm.volume = 0f;
@@ -78,17 +92,14 @@ namespace Assets.Arthur.Scripts
                 MaxBpm.volume = 0f;
             }
 
-            else if(CurrentStressLevel > 80)
+            else if(CurrentStressLevel > 70)
             {
                 NormalBpm.volume = 0f;
                 ThirtyPercentBpm.volume = 0f;
                 SixtyPercentBpm.volume = 0f;
                 MaxBpm.volume = 0.85f;
             }
-            
-            
-            StressSlider.value = CurrentStressLevel;
-            
+
             isUsingBlinkSpell = _spellManager.IsUsingBlinkSpell;
 
             if (_mainTimer > 0)
@@ -107,10 +118,12 @@ namespace Assets.Arthur.Scripts
                 }
                 else
                 {
-                    WaitBeforeDeath();
+                    Die();
                 }
                 _mainTimer = TimeBetweenIncrement;
             }
+
+            _bloodLevel.Blood = ((CurrentStressLevel / 100f) - 0.2f) * 1.2f;
         }
         
         private void IncreaseStressAmount()
@@ -137,30 +150,17 @@ namespace Assets.Arthur.Scripts
                 _decreaseTimer = TimeBetweenDecrement;
             }
         }
-
-        private void WaitBeforeDeath()
-        {
-            if (_deathTimer > 0)
-            {
-                _deathTimer -= Time.deltaTime;
-            }
-
-            else
-            {
-                if (CurrentStressLevel == MaxStressLevel)
-                {
-                    Die();
-                }
-                _deathTimer = TimeBeforeDeath;
-            }
-        }
-
+        
         private void Die()
         {
-            Debug.Log("T'es mort");
+            NormalBpm.volume = 0f;
+            ThirtyPercentBpm.volume = 0f;
+            SixtyPercentBpm.volume = 0f;
+            MaxBpm.volume = 0f;
+            _controller.enabled = false;
+            DiePanel.SetActive(true);
         }
         
-        ///
         ///
         ///
         /// 

@@ -23,12 +23,18 @@
           </e>
         </e>
         <e p="Nico" t="Include">
+          <e p="Blood Screen" t="Include">
+            <e p="BloodProperty.cs" t="Include" />
+          </e>
           <e p="Eye" t="Include">
             <e p="EyeProperty.cs" t="Include" />
           </e>
           <e p="Madness" t="Include">
             <e p="MadnessProperty.cs" t="Include" />
             <e p="NewUnlitShader.shader" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="FillMaterialProperty.cs" t="Include" />
           </e>
         </e>
         <e p="Plugins" t="Include">
