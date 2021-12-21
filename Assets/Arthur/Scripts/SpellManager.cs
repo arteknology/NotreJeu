@@ -42,7 +42,6 @@ namespace Assets.Arthur.Scripts
         {
             AudioSource = GetComponent<AudioSource>();
             _stressManager = GetComponent<StressManager>();
-            //eyeProperty = GetComponent<EyeProperty>();
             eyeProperty.OpenEyes = 1;
             
             _blinkCdTimer = BlinkCoolDown;
@@ -75,11 +74,14 @@ namespace Assets.Arthur.Scripts
             //BLINK
             if (canUseBlink && !IsUsingPurgeSpell)
             {
-                if (Input.GetKey(KeyCode.E))
-                { 
-                    Anim.SetBool("UseBlink", true);
-                    AudioSource.clip = BlinkSound;
-                    AudioSource.Play();
+                if (!_stressManager.isProtected)
+                {
+                    if (Input.GetKey(KeyCode.E))
+                    { 
+                        Anim.SetBool("UseBlink", true);
+                        AudioSource.clip = BlinkSound;
+                        AudioSource.Play();
+                    }
                 }
             }
             
@@ -107,11 +109,14 @@ namespace Assets.Arthur.Scripts
             //PURGE
             if (canUsePurge && _stressManager.CurrentStressLevel > 10 && !IsUsingBlinkSpell)
             {
-                if (Input.GetKey(KeyCode.R))
+                if (!_stressManager.isProtected)
                 {
-                    Anim.SetBool("UsePurge", true);
-                    AudioSource.clip = PurgeSound;
-                    AudioSource.Play();
+                    if (Input.GetKey(KeyCode.R))
+                    {
+                        Anim.SetBool("UsePurge", true);
+                        AudioSource.clip = PurgeSound;
+                        AudioSource.Play();
+                    }
                 }
             }
             
@@ -161,8 +166,12 @@ namespace Assets.Arthur.Scripts
             PurgeSlider.value = 0;
             PurgeLogo.color = NewColor;
             PurgeKey.color = NewColor;
-            GameObject purgeParticles = Instantiate(PurgeParticles, transform.position, PurgeParticles.transform.rotation);
-            Destroy(purgeParticles, 2f);
+            
+            Vector3 particlesPosition = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
+            GameObject purgeParticles = Instantiate(PurgeParticles, particlesPosition, PurgeParticles.transform.rotation);
+            purgeParticles.transform.parent = this.transform;
+            Destroy(purgeParticles, 1.2f);
+            
             PurgeAmount = (_stressManager.CurrentStressLevel / 100) * PurgePercentage;
             _stressManager.CurrentStressLevel -= PurgeAmount;
         }

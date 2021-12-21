@@ -120,9 +120,12 @@ namespace Assets.Arthur.Scripts
             { 
                 if (CurrentStressLevel < MaxStressLevel)
                 {
-                    if (!isUsingBlinkSpell && !isProtected)
+                    if (!isUsingBlinkSpell)
                     {
-                        IncreaseStressAmount();
+                        if (!isProtected)
+                        { 
+                            IncreaseStressAmount();
+                        }
                     }
                 }
                 else
