@@ -133,6 +133,7 @@ namespace Assets.Arthur.Scripts
                     StressSound.SetActive(false);
                     _camera.enabled = false;
                     _controller.enabled = false;
+                    PlayerCamAnimator.Play("AnimDie");
                 }
                 _mainTimer = TimeBetweenIncrement;
             }
@@ -142,13 +143,13 @@ namespace Assets.Arthur.Scripts
         
         private void IncreaseStressAmount()
         {
-            CurrentStressLevel += StressIncrement * StressMultiplicator
+            CurrentStressLevel += StressIncrement * StressMultiplicator;
         ;
         }
 
         private void DecreaseStressAmount()
         {
-            DecreaseAmount = StressIncrement * StressMultiplicator;
+            DecreaseAmount = StressIncrement * StressMultiplicator * 1.5f;
             
             if (_decreaseTimer > 0)
             {
