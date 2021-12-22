@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5223983450097498865}
   - component: {fileID: 5223983450097498863}
   - component: {fileID: 338839803353965857}
+  - component: {fileID: 1011656058}
+  - component: {fileID: 1011656059}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -99,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57cdcde600e2f3740803be278c8cb6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 500
-  _mouseSpeed: 300
+  maxSpeed: 400
+  _mouseSpeed: 200
   playerBody: {fileID: 5223983450400237647}
 --- !u!114 &338839803353965857
 MonoBehaviour:
@@ -226,6 +228,35 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!111 &1011656058
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5223983450097498867}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 61f014c79ba98ec43b65aca4ef8602df, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &1011656059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5223983450097498867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff47bcc3cd9417a4fba03a63af0d9fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stressManager: {fileID: 5223983450400237645}
 --- !u!1 &5223983450320306810
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5223983450400237647
 Transform:
   m_ObjectHideFlags: 0
@@ -388,6 +419,12 @@ MonoBehaviour:
   isGrounded: 0
   CrouchSpeed: 12
   isUnderObj: 0
+  isInEndZone: 0
+  UIEndZone: {fileID: 0}
+  EndUI: {fileID: 0}
+  IGUI: {fileID: 0}
+  _stressManager: {fileID: 5223983450400237645}
+  _camera: {fileID: 5223983450097498863}
 --- !u!114 &5223983450400237645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,10 +444,16 @@ MonoBehaviour:
   TimeBetweenIncrement: 0.2
   TimeBetweenDecrement: 0.4
   TimeBeforeDeath: 3
+  DiePanel: {fileID: 0}
   NormalBpm: {fileID: 5223983451621435073}
   ThirtyPercentBpm: {fileID: 5223983449954666601}
   SixtyPercentBpm: {fileID: 5223983450310868983}
   MaxBpm: {fileID: 5223983450976868020}
+  _camera: {fileID: 5223983450097498863}
+  StressSound: {fileID: 5223983450722477433}
+  UIIG: {fileID: 0}
+  PlayerCamAnimator: {fileID: 1011656058}
+  AnimDie: {fileID: 7400000, guid: 61f014c79ba98ec43b65aca4ef8602df, type: 2}
 --- !u!114 &5223983450400237644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,6 +1928,12 @@ AudioSource:
 --- !u!4 &5223983450722477430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3208004817416619685, guid: d7d7a47630289e74db7cdf3a4ea143d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7276214078438712275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5223983450722477433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3208004817416619690, guid: d7d7a47630289e74db7cdf3a4ea143d9,
     type: 3}
   m_PrefabInstance: {fileID: 7276214078438712275}
   m_PrefabAsset: {fileID: 0}

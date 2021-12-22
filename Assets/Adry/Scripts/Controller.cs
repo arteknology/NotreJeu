@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Arthur.Scripts;
 
 public class Controller : MonoBehaviour
 {
@@ -12,9 +13,18 @@ public class Controller : MonoBehaviour
     public bool isGrounded;
     public float CrouchSpeed = 12f;
     public bool isUnderObj = false;
+    public bool isInEndZone = false;
+
+    public GameObject UIEndZone;
+    public GameObject EndUI;
+    public GameObject IGUI;
+    public GameObject _stressSounds;
+    public StressManager _stressmanager;
+
+    public FpsCam _camera;
+    
 
     private Vector3 velocity;
-
 
     void FixedUpdate()
     {
@@ -51,6 +61,25 @@ public class Controller : MonoBehaviour
                 controller.height = Mathf.Lerp(controller.height, 2f, Time.deltaTime * CrouchSpeed * 3f );
             }
         }
+
+        //end
+        if (Input.GetKey(KeyCode.E) && isInEndZone)
+        {
+            Invoke("End", 1.5f);
+        }
+
+    }
+
+    public void End()
+    {
+        _stressmanager.enabled = false;
+        _stressSounds.SetActive(false);
+        _camera.enabled = false;
+        IGUI.SetActive(false);
+        EndUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        UIEndZone.SetActive(false);
+        this.enabled = false;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -76,6 +105,16 @@ public class Controller : MonoBehaviour
             isUnderObj = true;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("EndZone"))
+        {
+            isInEndZone = true;
+            UIEndZone.SetActive(true);
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("UnderObj"))
