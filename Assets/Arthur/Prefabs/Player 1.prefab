@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57cdcde600e2f3740803be278c8cb6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 400
-  _mouseSpeed: 200
+  maxSpeed: 100
+  _mouseSpeed: 50
   playerBody: {fileID: 5223983450400237647}
 --- !u!114 &338839803353965857
 MonoBehaviour:
@@ -123,7 +123,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 2
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
@@ -423,7 +423,8 @@ MonoBehaviour:
   UIEndZone: {fileID: 0}
   EndUI: {fileID: 0}
   IGUI: {fileID: 0}
-  _stressManager: {fileID: 5223983450400237645}
+  _stressSounds: {fileID: 5223983450722477433}
+  _stressmanager: {fileID: 5223983450400237645}
   _camera: {fileID: 5223983450097498863}
 --- !u!114 &5223983450400237645
 MonoBehaviour:
