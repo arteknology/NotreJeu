@@ -18,13 +18,13 @@ MonoBehaviour:
     m_Value: 2
   threshold:
     m_OverrideState: 1
-    m_Value: 0.27
+    m_Value: 0.36
   intensity:
     m_OverrideState: 1
-    m_Value: 0.36
+    m_Value: 0.441
   scatter:
     m_OverrideState: 1
-    m_Value: 0.932
+    m_Value: 0.762
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -101,13 +101,13 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.04569688}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.0050994386}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.20563596}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.19543709}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.723534}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.11728712}
 --- !u!114 &-626453753583252562
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -157,16 +157,16 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.216
+    m_Value: 0.233
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.206
   roundness:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   rounded:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   mask:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -196,6 +196,8 @@ MonoBehaviour:
   - {fileID: 7117409083045825555}
   - {fileID: -516961887269588027}
   - {fileID: 597024728088749294}
+  - {fileID: 9153783746283638099}
+  - {fileID: 4143959684806088831}
 --- !u!114 &459319546941822458
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -211,10 +213,10 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.49
+    m_Value: 0.8
   contrast:
     m_OverrideState: 1
-    m_Value: 35.1
+    m_Value: 70.2
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 0.9009434, g: 0.9526251, b: 1, a: 1}
@@ -223,7 +225,7 @@ MonoBehaviour:
     m_Value: -180
   saturation:
     m_OverrideState: 1
-    m_Value: -25.1
+    m_Value: -23.3
 --- !u!114 &597024728088749294
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -239,10 +241,161 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: -33.5
+    m_Value: -34.7
   tint:
     m_OverrideState: 1
-    m_Value: -8.3
+    m_Value: 13.1
+--- !u!114 &4143959684806088831
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d08ce26990eb1a4a9177b860541e702, type: 3}
+  m_Name: Exposure
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 0
+    m_Value: 0
+  meteringMode:
+    m_OverrideState: 0
+    m_Value: 2
+  luminanceSource:
+    m_OverrideState: 0
+    m_Value: 1
+  fixedExposure:
+    m_OverrideState: 0
+    m_Value: 0
+  compensation:
+    m_OverrideState: 0
+    m_Value: 0
+  limitMin:
+    m_OverrideState: 0
+    m_Value: -1
+  limitMax:
+    m_OverrideState: 0
+    m_Value: 14
+  curveMap:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -10
+        value: -10
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 20
+        value: 20
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  limitMinCurveMap:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -10
+        value: -12
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 20
+        value: 18
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  limitMaxCurveMap:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -10
+        value: -8
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 20
+        value: 22
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  adaptationMode:
+    m_OverrideState: 0
+    m_Value: 1
+  adaptationSpeedDarkToLight:
+    m_OverrideState: 0
+    m_Value: 3
+  adaptationSpeedLightToDark:
+    m_OverrideState: 0
+    m_Value: 1
+  weightTextureMask:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  histogramPercentages:
+    m_OverrideState: 0
+    m_Value: {x: 40, y: 90}
+  histogramUseCurveRemapping:
+    m_OverrideState: 0
+    m_Value: 0
+  targetMidGray:
+    m_OverrideState: 0
+    m_Value: 0
+  centerAroundExposureTarget:
+    m_OverrideState: 0
+    m_Value: 0
+  proceduralCenter:
+    m_OverrideState: 0
+    m_Value: {x: 0.5, y: 0.5}
+  proceduralRadii:
+    m_OverrideState: 0
+    m_Value: {x: 0.3, y: 0.3}
+  maskMinIntensity:
+    m_OverrideState: 0
+    m_Value: -30
+  maskMaxIntensity:
+    m_OverrideState: 0
+    m_Value: 30
+  proceduralSoftness:
+    m_OverrideState: 0
+    m_Value: 0.5
 --- !u!114 &5204660631483115591
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -346,13 +499,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.045696877}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.10708822}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.030464588}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.1633141}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.21325211}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.029672291}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -390,3 +543,40 @@ MonoBehaviour:
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+--- !u!114 &9153783746283638099
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891066c16477d2947afb1d6c71030249, type: 3}
+  m_Name: SSGI
+  m_EditorClassIdentifier: 
+  active: 1
+  Intensity:
+    m_OverrideState: 1
+    m_Value: 0.09
+  AOInfluence:
+    m_OverrideState: 1
+    m_Value: 1
+  DiffuseIntensity:
+    m_OverrideState: 1
+    m_Value: 0.1304
+  RoughnessInfluence:
+    m_OverrideState: 1
+    m_Value: 1
+  NormalBias:
+    m_OverrideState: 1
+    m_Value: 1.5
+  Diffusion:
+    m_OverrideState: 1
+    m_Value: 1.884
+  MinMaxDistance:
+    m_OverrideState: 0
+    m_Value: {x: 30, y: 120}
+  Quality:
+    m_OverrideState: 0
+    m_Value: 0
