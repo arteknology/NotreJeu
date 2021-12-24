@@ -26,11 +26,11 @@ Material:
   m_Name: GranitWal
   m_Shader: {fileID: -6465566751694194690, guid: db64e615c40ac9d4aaf5a6f1ce474dbe,
     type: 3}
-  m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _TESSELLATION_PHONG
+  m_ShaderKeywords: _DISABLE_DECALS _DISABLE_SSR_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2225
+  m_CustomRenderQueue: 2000
   stringTagMap:
     MotionVector: User
   disabledShaderPasses:
@@ -247,15 +247,16 @@ Material:
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
     - _SubsurfaceMask: 1
-    - _SupportDecals: 1
+    - _SupportDecals: 0
     - _SurfaceType: 0
+    - _Tesselate: 10
     - _Tesselation: 26.9
     - _TessellationBackFaceCullEpsilon: -0.25
     - _TessellationFactorMaxDistance: 50
     - _TessellationFactorMinDistance: 20
     - _TessellationFactorTriangleSize: 100
     - _TessellationMaxDisplacement: 0.01
-    - _TessellationMode: 1
+    - _TessellationMode: 0
     - _TessellationShapeFactor: 0.75
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
