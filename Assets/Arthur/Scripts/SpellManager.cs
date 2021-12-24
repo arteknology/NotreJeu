@@ -58,7 +58,7 @@ namespace Assets.Arthur.Scripts
 
             BaseColor = BlinkLogo.color;
             NewColor = BaseColor;
-            NewColor.a = 0.4f;
+            NewColor.a = 0.3f;
 
             BlinkLogo.color = NewColor;
             BlinkKey.color = NewColor;
