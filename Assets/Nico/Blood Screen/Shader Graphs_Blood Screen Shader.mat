@@ -11,10 +11,11 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 006fe359aa2fc1b41bd6580cdf8e435f,
     type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _ENABLE_FOG_ON_TRANSPARENT _SURFACE_TYPE_TRANSPARENT
+    _TRANSPARENT_WRITES_MOTION_VEC
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2998
+  m_CustomRenderQueue: 2990
   stringTagMap:
     MotionVector: User
     RenderType: Transparent
@@ -80,13 +81,13 @@ Material:
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
     - _TransparentDepthPrepassEnable: 0
-    - _TransparentSortPriority: -2
-    - _TransparentWritingMotionVec: 0
+    - _TransparentSortPriority: -10
+    - _TransparentWritingMotionVec: 1
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 4
+    - _ZTestDepthEqualForOpaque: 8
     - _ZTestGBuffer: 3
-    - _ZTestTransparent: 4
+    - _ZTestTransparent: 8
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}

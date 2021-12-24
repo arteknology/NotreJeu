@@ -87,9 +87,12 @@ Shader "Hidden/Shader/SSGR"
 
         CustomBufferData data;
         GetCustomBufferData(CustomBuffer, CustomDepth, linearDepth, data);
+        
 
         // return data.opaqueMask; // Shitty
         // return data.opaqueBehindtransparentMask;
+        // return data.normal.xyzz;
+        // return data.curvatureMask;
         if(data.curvatureMask) // Only display onto geometry
         {
             const uint MaxSceneLOD = _ColorPyramidLodCount - 1;
@@ -107,13 +110,15 @@ Shader "Hidden/Shader/SSGR"
             
             float3 normalBackFace = data.normal; // Backface Normals using custom pass before transparent // Helps with rendering bottles
             
-            if (data.transparentMask) // Normals from transparent geometry are not in the sampled normal buffer, thus needing to be fetched from a custom pass
-            {
-                // normalVSRaw = data.normal;
-                normalVS = data.normal;
-                // normalVS = bsdfData.normalWS;
-                // return normalVS.xyzz;
-            }
+            // if (data.transparentMask) // Normals from transparent geometry are not in the sampled normal buffer, thus needing to be fetched from a custom pass
+            // {
+            //     // normalVSRaw = data.normal;
+            //     normalVS = data.normal;
+            //     // normalVS = bsdfData.normalWS;
+            //     // return normalVS.xyzz;
+            // }
+
+            // return ssData.normalVS.xyzz;
             
             float3 Albedo = saturate(bsdfData.diffuseColor); // saturate(SampleAlbedo(uv, input));
             float Roughness = bsdfData.perceptualRoughness;
@@ -127,16 +132,18 @@ Shader "Hidden/Shader/SSGR"
             
             float SpecularOcclusionSSAO = GetSpecularOcclusionFromAmbientOcclusion(FresnelReversed, 1 - SSAO, Roughness) * SurfaceAO;
             
-            if (data.transparentMask){
-                Albedo = (GetCamColorLOD(uv, 0, 0));
+            // if (data.transparentMask){
+            //     Albedo = (GetCamColorLOD(uv, 0, 0));
+            //
+            //     // normalVS = normalVSTransparent;
+            //     Roughness = 0.05;
+            //     SpecularOcclusionSSAO = 1;
+            // }
+            // else{
+            //     SpecularOcclusionSSAO *= bsdfData.specularOcclusion;
+            // }
 
-                // normalVS = normalVSTransparent;
-                Roughness = 0.05;
-                SpecularOcclusionSSAO = 1;
-            }
-            else{
-                SpecularOcclusionSSAO *= bsdfData.specularOcclusion;
-            }
+            SpecularOcclusionSSAO *= bsdfData.specularOcclusion;
 
             const float MicroFacedMask = rcp(0.5f + 0.5f * sqrt(1 + Sq(Roughness) * (rcp(Sq(FresnelReversed + 0.001f)) - 1)));//  saturate(G_MaskingSmithGGX(FresnelReversed, Roughness));
             const float GGX = D_GGX(FresnelReversed, Roughness);
@@ -214,7 +221,7 @@ Shader "Hidden/Shader/SSGR"
             }
 
             Reflections *= SpecularOcclusionSSAO;
-            Reflections *= lerp(Albedo, 0.5, Fresnel) * _Intensity * 10; 
+            Reflections *= lerp(Albedo, 0.5, Fresnel) * _Intensity * 40; 
             
             return float4(inColor + Reflections * _Intensity * (Sq(SpecularOcclusionSSAO)), 1) ; // Final Blend // * cube(1-SampleSSAO(uv))
 

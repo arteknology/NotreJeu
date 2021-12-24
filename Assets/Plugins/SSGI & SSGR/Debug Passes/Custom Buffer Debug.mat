@@ -10,7 +10,7 @@ Material:
   m_Name: Custom Buffer Debug
   m_Shader: {fileID: -6465566751694194690, guid: 0cae2c6b084b67646ab2ca08560782c7,
     type: 3}
-  m_ShaderKeywords: _CHANNEL_DEPTH _DISABLE_SSR_TRANSPARENT _DOUBLESIDED_ON
+  m_ShaderKeywords: _CHANNEL_RGB _DISABLE_SSR_TRANSPARENT _DOUBLESIDED_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
@@ -47,7 +47,7 @@ Material:
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
     - _BlendMode: 0
-    - _CHANNEL: 5
+    - _CHANNEL: 0
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 0
     - _CullModeForward: 0

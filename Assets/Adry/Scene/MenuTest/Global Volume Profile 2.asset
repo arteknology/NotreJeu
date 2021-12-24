@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
     m_Value: 3
@@ -46,6 +46,55 @@ MonoBehaviour:
   m_HighQualityFiltering:
     m_OverrideState: 1
     m_Value: 1
+--- !u!114 &-4616850009966659646
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72166780d7e3e9940b1cc3fb47710462, type: 3}
+  m_Name: SSGR
+  m_EditorClassIdentifier: 
+  active: 1
+  Intensity:
+    m_OverrideState: 1
+    m_Value: 0.75
+  FresnelReflection:
+    m_OverrideState: 1
+    m_Value: 1
+  Distortion:
+    m_OverrideState: 1
+    m_Value: 2
+  InnerDistortion:
+    m_OverrideState: 1
+    m_Value: 2
+  FresnelPower:
+    m_OverrideState: 1
+    m_Value: 1
+  EdgeAngle:
+    m_OverrideState: 1
+    m_Value: 0.35
+  UVEdgeSoftness:
+    m_OverrideState: 1
+    m_Value: 0
+  MinMaxBlur:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 1}
+  RemoveMirroredUVs:
+    m_OverrideState: 1
+    m_Value: 0
+  RemoveInvisible:
+    m_OverrideState: 1
+    m_Value: 0
+  RemoveUnwanted:
+    m_OverrideState: 1
+    m_Value: 0
+  BackReflections:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &-1984377753943604454
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -70,7 +119,7 @@ MonoBehaviour:
     m_Value: 2
   directLightingStrength:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.75
   radius:
     m_OverrideState: 1
     m_Value: 5
@@ -105,7 +154,7 @@ MonoBehaviour:
     m_Value: 0
   m_MaximumRadiusInPixels:
     m_OverrideState: 1
-    m_Value: 80
+    m_Value: 256
   m_BilateralUpsample:
     m_OverrideState: 1
     m_Value: 1
@@ -136,10 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e2d32e2c7b0c418e030c3236d663a, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   spectralLut:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -148,7 +197,7 @@ MonoBehaviour:
     m_Value: 0.15
   m_MaxSamples:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 6
 --- !u!114 &-516961887269588027
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -210,6 +259,8 @@ MonoBehaviour:
   - {fileID: -516961887269588027}
   - {fileID: 597024728088749294}
   - {fileID: -1984377753943604454}
+  - {fileID: 2528009993716592186}
+  - {fileID: -4616850009966659646}
 --- !u!114 &459319546941822458
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -222,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8bcdf71d7fafa419fca1ed162f5fc9, type: 3}
   m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   postExposure:
     m_OverrideState: 0
     m_Value: 0
@@ -250,13 +301,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51a78e223a2e504bb88a059b55229ea, type: 3}
   m_Name: WhiteBalance
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   temperature:
     m_OverrideState: 1
     m_Value: -34.7
   tint:
     m_OverrideState: 1
     m_Value: 13.1
+--- !u!114 &2528009993716592186
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891066c16477d2947afb1d6c71030249, type: 3}
+  m_Name: SSGI
+  m_EditorClassIdentifier: 
+  active: 1
+  Intensity:
+    m_OverrideState: 1
+    m_Value: 3
+  AOInfluence:
+    m_OverrideState: 1
+    m_Value: 1
+  DiffuseIntensity:
+    m_OverrideState: 1
+    m_Value: 0.02
+  RoughnessInfluence:
+    m_OverrideState: 1
+    m_Value: 0.35
+  NormalBias:
+    m_OverrideState: 1
+    m_Value: 3
+  Diffusion:
+    m_OverrideState: 1
+    m_Value: 2
+  MinMaxDistance:
+    m_OverrideState: 1
+    m_Value: {x: 30, y: 100}
+  Quality:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &5204660631483115591
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -357,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6b00fcf518bb94a90b408492e07b44, type: 3}
   m_Name: FilmGrain
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   type:
     m_OverrideState: 1
     m_Value: 1

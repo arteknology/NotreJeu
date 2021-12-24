@@ -136,34 +136,19 @@ Shader "Hidden/Shader/SSGI"
             // GetStencilValue()
 
 
-            if (IsTransParent){
-                // Albedo = saturate(GetCamColorLOD(uv, 5, 0));
-                Albedo = 0.1;
+            // if (IsTransParent){
+            //     // Albedo = saturate(GetCamColorLOD(uv, 5, 0));
+            //     Albedo = 0.1;
+            //
+            //     normalVS = normalVSTransparent;
+            //     Roughness = 0.95;
+            //     AO = 0;
+            // }
+            // else{
+            //     AO *= bsdfData.specularOcclusion;
+            // }
 
-                normalVS = normalVSTransparent;
-                Roughness = 0.95;
-                AO = 0;
-            }
-            else{
-                AO *= bsdfData.specularOcclusion;
-            }
-
-            // return data.transparentMask;
-            
-            // return CustomDepth < 1; // Transparency Mask
-            // return linearDepth > CustomDepth;
-            // return CustomDepth;
-            // return linearDepth < CustomDepth; // Behind walls
-
-            // return linearDepth;
-            // return CustomBuffer.z;
-            // return data.transparentMask;
-            // return linearDepth;
-            
-            // return AO;
-            
-            // Displacementù
-            // return Roughness;
+            AO *= bsdfData.specularOcclusion;
             
             float2 NormalOffset = GetNormalOffset(normalVS, _NormalBias) * (0.5 * Roughness + 0.5); // Roughness influences the offset sampling vector // mimics reflections
             float4x2 offsets = {InBetweenValuesOffset.xx, InBetweenValuesOffset.yy, InBetweenValuesOffset.zz, InBetweenValuesOffset.ww};
