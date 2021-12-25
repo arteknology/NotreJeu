@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9008a067f4d626c4d8bc4bc48f04bb89, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
     m_Value: 3
@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 3
   directLightingStrength:
     m_OverrideState: 1
     m_Value: 0
@@ -102,10 +102,10 @@ MonoBehaviour:
     m_Value: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.65
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0.8101263, b: 1, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   m_Resolution:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 2
   m_HighQualityPrefiltering:
     m_OverrideState: 1
@@ -161,28 +161,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891066c16477d2947afb1d6c71030249, type: 3}
   m_Name: SSGI
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   Intensity:
     m_OverrideState: 1
-    m_Value: 0.26
+    m_Value: 3.68
   AOInfluence:
     m_OverrideState: 1
-    m_Value: 0.566
+    m_Value: 1
   DiffuseIntensity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.01
   RoughnessInfluence:
     m_OverrideState: 1
-    m_Value: 0.374
+    m_Value: 0.25
   NormalBias:
     m_OverrideState: 1
-    m_Value: 3.13
+    m_Value: 3.74
   Diffusion:
     m_OverrideState: 1
     m_Value: 2
   MinMaxDistance:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 120}
+    m_Value: {x: 31.118881, y: 120}
   Quality:
     m_OverrideState: 1
     m_Value: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
   m_Name: VisualEnvironment
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   skyType:
     m_OverrideState: 1
     m_Value: 3
@@ -380,16 +380,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72166780d7e3e9940b1cc3fb47710462, type: 3}
   m_Name: SSGR
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   Intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.6
   FresnelReflection:
     m_OverrideState: 1
     m_Value: 1
   Distortion:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 3
   InnerDistortion:
     m_OverrideState: 1
     m_Value: 1
@@ -401,13 +401,13 @@ MonoBehaviour:
     m_Value: 0.5
   UVEdgeSoftness:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.25
   MinMaxBlur:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 1}
+    m_Value: {x: 0, y: 0.99999994}
   RemoveMirroredUVs:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   RemoveInvisible:
     m_OverrideState: 1
     m_Value: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
   m_Name: GradientSky
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   rotation:
     m_OverrideState: 0
     m_Value: 0
