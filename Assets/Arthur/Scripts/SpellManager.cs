@@ -37,7 +37,8 @@ namespace Assets.Arthur.Scripts
         public AudioClip PurgeSound;
         private AudioSource AudioSource;
         public GameObject PurgeParticles;
-        
+        public GameObject BlinkParticles;
+
         void Start()
         {
             AudioSource = GetComponent<AudioSource>();
@@ -148,6 +149,13 @@ namespace Assets.Arthur.Scripts
             eyeProperty.OpenEyes = 0;
             BlinkLogo.color = NewColor;
             BlinkKey.color = NewColor;
+
+
+            Vector3 particlesPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            GameObject blinkParticles = Instantiate(BlinkParticles, particlesPosition, BlinkParticles.transform.rotation);
+            blinkParticles.transform.parent = this.transform;
+            Destroy(blinkParticles, 1.5f);
+
             StartCoroutine(WaitForSeconds());
 
         }
