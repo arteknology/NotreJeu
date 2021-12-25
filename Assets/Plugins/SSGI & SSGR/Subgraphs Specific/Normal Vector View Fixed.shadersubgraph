@@ -46,9 +46,6 @@
         },
         {
             "m_Id": "6b0fa9c6d0f84651a6262b964436def8"
-        },
-        {
-            "m_Id": "019116d3b6ba495dabbeb64a8e3d1bf8"
         }
     ],
     "m_GroupDatas": [],
@@ -292,41 +289,6 @@
 }
 
 {
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.CustomFunctionNode",
-    "m_ObjectId": "019116d3b6ba495dabbeb64a8e3d1bf8",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "Custom Function",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": -113.04345703125,
-            "y": 329.56524658203127,
-            "width": 0.0,
-            "height": 0.0
-        }
-    },
-    "m_Slots": [],
-    "synonyms": [
-        "code",
-        "HLSL"
-    ],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_SourceType": 0,
-    "m_FunctionName": "Enter function name here...",
-    "m_FunctionSource": "",
-    "m_FunctionBody": "Enter function body here..."
-}
-
-{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.NormalizeNode",
     "m_ObjectId": "125d583655de4a849959dcda5136e65c",
@@ -354,7 +316,7 @@
     ],
     "synonyms": [],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
@@ -651,7 +613,7 @@
     ],
     "synonyms": [],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_PreviewMode": 2,
     "m_CustomColors": {
         "m_SerializableColors": []
@@ -716,7 +678,7 @@
     },
     "m_Name": "Matrix Construction",
     "m_DrawState": {
-        "m_Expanded": true,
+        "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
             "x": 140.00001525878907,
@@ -1523,10 +1485,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -627.5,
-            "y": -177.0,
-            "width": 170.0,
-            "height": 113.0
+            "x": -629.0,
+            "y": -177.00001525878907,
+            "width": 171.99996948242188,
+            "height": 112.00001525878906
         }
     },
     "m_Slots": [
