@@ -10,9 +10,9 @@ Material:
   m_Name: CustomBuffer
   m_Shader: {fileID: -6465566751694194690, guid: f28461b5a8219ee43b618cbec81b127c,
     type: 3}
-  m_ShaderKeywords: _TESSELLATION_PHONG
+  m_ShaderKeywords: _DISABLE_DECALS _DISABLE_SSR _TESSELLATION_PHONG
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
@@ -20,9 +20,8 @@ Material:
   disabledShaderPasses:
   - RayTracingPrepass
   - TransparentBackface
-  - MOTIONVECTORS
-  - TransparentDepthPrepass
   - TransparentDepthPostpass
+  - TransparentDepthPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
