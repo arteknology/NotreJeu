@@ -74,8 +74,10 @@ Shader "Hidden/Shader/SSGR"
         UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
         UNITY_VBUFFER_INCLUDED
 
-        uint2 SSuv = input.texcoord * _ScreenSize.xy;
+        uint2 SSuv = input.texcoord * _PostProcessScreenSize.xy;
         float2 uv = input.texcoord * _RTHandleScale;
+        // uv = ClampAndScaleUVForBilinearPostProcessTexture(input.texcoord);
+        // SSuv = ClampAndScaleUVPostProcessTextureForPoint(input.texcoord);
         //uv = ClampAndScaleUVForBilinearPostProcessTexture(input.texcoord) * 0.5f;
         const float4 inColor = float4(LOAD_TEXTURE2D_X(_InputTexture, SSuv).xyz, 1);
 
@@ -83,17 +85,19 @@ Shader "Hidden/Shader/SSGR"
         float linearDepth = LinearEyeDepth(depth, _ZBufferParams);
         
         float4 CustomBuffer = SampleCustomColor(input.texcoord);
-        float CustomDepth = LinearEyeDepth(SampleCustomDepth(input.texcoord), _ZBufferParams); // Don't forget to linearize the depth
+        float CustomDepth = LinearEyeDepth(SampleCustomDepth(uv), _ZBufferParams); // Don't forget to linearize the depth
 
         CustomBufferData data;
         GetCustomBufferData(CustomBuffer, CustomDepth, linearDepth, data);
+
+        
         
 
         // return data.opaqueMask; // Shitty
         // return data.opaqueBehindtransparentMask;
         // return data.normal.xyzz;
         // return data.curvatureMask;
-        if(data.curvatureMask) // Only display onto geometry
+        if(true) // Only display onto geometry
         {
             const uint MaxSceneLOD = _ColorPyramidLodCount - 1;
             
@@ -101,7 +105,8 @@ Shader "Hidden/Shader/SSGR"
             BuiltinData unused;
             DecodeFromGBuffer(SSuv, UINT_MAX, bsdfData, unused);
 
-            const SSData ssData = GetScreenSpaceData(input.positionCS, SSuv, bsdfData);
+
+            const SSData ssData = GetScreenSpaceData(SSuv, SSuv, bsdfData);
             
 
             // ViewDirWS Normals
@@ -125,9 +130,8 @@ Shader "Hidden/Shader/SSGR"
             const float SSAO = SampleSSAO(uv);
             const float SurfaceAO = bsdfData.specularOcclusion; // SpecularOcclusion instead of AmbientOcclusion in Deferred rendering
 
-            const float FresnelReversed = saturate(normalVS.z);
+            float FresnelReversed = saturate(normalVS.z);
             const float Fresnel = saturate(1- normalVS.z);
-
             
             
             float SpecularOcclusionSSAO = GetSpecularOcclusionFromAmbientOcclusion(FresnelReversed, 1 - SSAO, Roughness) * SurfaceAO;
@@ -168,6 +172,7 @@ Shader "Hidden/Shader/SSGR"
             NewUVs2 = uv + NormalDirection * InternalDistortionFactor;
             
             float2 NewUVs3 = uv + normalize(NormalReconstructZ(CustomBuffer.xy)) * BackDistortionFactor;
+            // return FresnelReversed;
 
             float InsideBlur =  (1 - InsideUVSquare(NewUVs2)) * (1 + clamp(abs(cos(Angle) * tan(2 * Angle)), 0, 10) * 10 * _InnerDistortion);
             InsideBlur = clamp(InsideBlur, 5, 10);
@@ -221,7 +226,9 @@ Shader "Hidden/Shader/SSGR"
             }
 
             Reflections *= SpecularOcclusionSSAO;
-            Reflections *= lerp(Albedo, 0.5, Fresnel) * _Intensity * 40; 
+            Reflections *= lerp(Albedo, 0.5, Fresnel) * _Intensity * 40;
+
+            // return (GetCamColorLOD(NewUVs, Blur, 0) * Reflectiveness.x).xyzz;
             
             return float4(inColor + Reflections * _Intensity * (Sq(SpecularOcclusionSSAO)), 1) ; // Final Blend // * cube(1-SampleSSAO(uv))
 

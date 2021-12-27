@@ -126,12 +126,12 @@ MonoBehaviour:
   antialiasing: 2
   SMAAQuality: 2
   dithering: 1
-  stopNaNs: 1
-  taaSharpenStrength: 0.15
+  stopNaNs: 0
+  taaSharpenStrength: 0.5
   TAAQuality: 2
-  taaHistorySharpening: 0
-  taaAntiFlicker: 1
-  taaMotionVectorRejection: 0
+  taaHistorySharpening: 0.25
+  taaAntiFlicker: 0.25
+  taaMotionVectorRejection: 1
   taaAntiHistoryRinging: 1
   taaBaseBlendFactor: 0.6
   physicalParameters:
@@ -146,7 +146,7 @@ MonoBehaviour:
   flipYMode: 0
   xrRendering: 1
   fullscreenPassthrough: 0
-  allowDynamicResolution: 0
+  allowDynamicResolution: 1
   customRenderingSettings: 0
   invertFaceCulling: 0
   probeLayerMask:

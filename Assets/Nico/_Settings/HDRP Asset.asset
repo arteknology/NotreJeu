@@ -126,7 +126,7 @@ MonoBehaviour:
       DLSSSharpness: 0.5
       maxPercentage: 50
       minPercentage: 50
-      dynResType: 1
+      dynResType: 0
       upsampleFilter: 5
       forceResolution: 1
       forcedPercentage: 50
@@ -139,7 +139,7 @@ MonoBehaviour:
     xrSettings:
       singlePass: 1
       occlusionMesh: 1
-      cameraJitter: 1
+      cameraJitter: 0
     postProcessQualitySettings:
       NearBlurSampleCount: 030000000500000008000000
       NearBlurMaxRadius:
